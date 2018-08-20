@@ -31,14 +31,13 @@ namespace RestBadApi
         private void InitializeComponent()
         {
             this.getData = new System.Windows.Forms.Button();
-            this.listViewTweets = new System.Windows.Forms.ListView();
             this.startDateLabel = new System.Windows.Forms.Label();
             this.endDateLabel = new System.Windows.Forms.Label();
             this.datePickerStartDate = new System.Windows.Forms.DateTimePicker();
             this.datePickerEndDate = new System.Windows.Forms.DateTimePicker();
-            this.timePickerStartTime = new System.Windows.Forms.DateTimePicker();
-            this.timePickerEndTime = new System.Windows.Forms.DateTimePicker();
             this.textBoxResponse = new System.Windows.Forms.TextBox();
+            this.dataGridViewTweets = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTweets)).BeginInit();
             this.SuspendLayout();
             // 
             // getData
@@ -50,17 +49,6 @@ namespace RestBadApi
             this.getData.Text = "GET THEM!";
             this.getData.UseVisualStyleBackColor = true;
             this.getData.Click += new System.EventHandler(this.getData_Click);
-            // 
-            // listViewTweets
-            // 
-            this.listViewTweets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewTweets.Location = new System.Drawing.Point(33, 358);
-            this.listViewTweets.Name = "listViewTweets";
-            this.listViewTweets.Size = new System.Drawing.Size(729, 157);
-            this.listViewTweets.TabIndex = 2;
-            this.listViewTweets.UseCompatibleStateImageBehavior = false;
             // 
             // startDateLabel
             // 
@@ -100,28 +88,6 @@ namespace RestBadApi
             this.datePickerEndDate.TabIndex = 7;
             this.datePickerEndDate.Value = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
             // 
-            // timePickerStartTime
-            // 
-            this.timePickerStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timePickerStartTime.Location = new System.Drawing.Point(33, 80);
-            this.timePickerStartTime.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
-            this.timePickerStartTime.MinDate = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
-            this.timePickerStartTime.Name = "timePickerStartTime";
-            this.timePickerStartTime.Size = new System.Drawing.Size(98, 20);
-            this.timePickerStartTime.TabIndex = 8;
-            this.timePickerStartTime.Value = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
-            // 
-            // timePickerEndTime
-            // 
-            this.timePickerEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.timePickerEndTime.Location = new System.Drawing.Point(319, 80);
-            this.timePickerEndTime.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
-            this.timePickerEndTime.MinDate = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
-            this.timePickerEndTime.Name = "timePickerEndTime";
-            this.timePickerEndTime.Size = new System.Drawing.Size(98, 20);
-            this.timePickerEndTime.TabIndex = 9;
-            this.timePickerEndTime.Value = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
-            // 
             // textBoxResponse
             // 
             this.textBoxResponse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -134,23 +100,33 @@ namespace RestBadApi
             this.textBoxResponse.Size = new System.Drawing.Size(729, 222);
             this.textBoxResponse.TabIndex = 10;
             // 
+            // dataGridViewTweets
+            // 
+            this.dataGridViewTweets.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewTweets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTweets.Location = new System.Drawing.Point(33, 358);
+            this.dataGridViewTweets.Name = "dataGridViewTweets";
+            this.dataGridViewTweets.Size = new System.Drawing.Size(729, 150);
+            this.dataGridViewTweets.TabIndex = 11;
+            // 
             // restForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 536);
+            this.Controls.Add(this.dataGridViewTweets);
             this.Controls.Add(this.textBoxResponse);
-            this.Controls.Add(this.timePickerEndTime);
-            this.Controls.Add(this.timePickerStartTime);
             this.Controls.Add(this.datePickerEndDate);
             this.Controls.Add(this.endDateLabel);
             this.Controls.Add(this.startDateLabel);
             this.Controls.Add(this.datePickerStartDate);
-            this.Controls.Add(this.listViewTweets);
             this.Controls.Add(this.getData);
             this.MinimumSize = new System.Drawing.Size(816, 575);
             this.Name = "restForm";
             this.Text = "GetForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTweets)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,14 +135,12 @@ namespace RestBadApi
         #endregion
 
         private System.Windows.Forms.Button getData;
-        private System.Windows.Forms.ListView listViewTweets;
         private System.Windows.Forms.DateTimePicker datePickerStartDate;
         private System.Windows.Forms.Label startDateLabel;
         private System.Windows.Forms.Label endDateLabel;
         private System.Windows.Forms.DateTimePicker datePickerEndDate;
-        private System.Windows.Forms.DateTimePicker timePickerStartTime;
-        private System.Windows.Forms.DateTimePicker timePickerEndTime;
         private TextBox textBoxResponse;
+        private DataGridView dataGridViewTweets;
     }
 }
 

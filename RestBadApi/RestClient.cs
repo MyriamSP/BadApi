@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RestBadApi
 {
-    //We only are using GET, but we can add another method in the future.
+    // REST methods, if we want to use them in the future.
     public enum httpMethod
     {
         GET,
@@ -19,21 +19,22 @@ namespace RestBadApi
 
     class RestClient
     {
-        //API address to connect
+        // API address to connect
         public string webAPIaddress { get; set; }
-        //Type of http method
+        // Type of http method
         public httpMethod method { get; set; }
         public string startDate { get; set; }
         public string endDate { get; set; }
 
+        // Default constructor setting GET method as default
         public RestClient()
         {
-            //using GET method by default
             method = httpMethod.GET;
             webAPIaddress = string.Empty;
 
         }
 
+        // Execute the requests and get a the response from the server
         public string Request()
         {
 

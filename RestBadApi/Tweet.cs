@@ -21,6 +21,7 @@ namespace RestBadApi
         public string text { get; set; }
     }
 
+    // This class implements the methods required to compare tweet elements when using List operations 
     class TweetComparer : IEqualityComparer<Tweet>
 
     {
@@ -39,8 +40,7 @@ namespace RestBadApi
             return x.id == y.id;
         }
         
-        // If Equals() returns true for a pair of objects 
-        // then GetHashCode() must return the same value for these objects.
+        // If Equals() returns true, GetHashCode() will return the same values.
 
         public int GetHashCode(Tweet t)
         {

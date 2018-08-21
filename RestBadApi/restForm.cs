@@ -13,6 +13,8 @@ namespace RestBadApi
 {
     public partial class restForm : Form
     {
+        private const string API_ENDPOINT = "https://badapi.iqvia.io/api/v1/Tweets?";
+
         public restForm()
         {
             InitializeComponent();
@@ -20,26 +22,32 @@ namespace RestBadApi
         #region Events
         private void getData_Click(object sender, EventArgs e)
         {
+
+            Cursor = Cursors.WaitCursor;
             callRestClient();
-            
+            Cursor = Cursors.Default;
 
         }
         #endregion
+
         #region RestClient Call
+
+        // Perform the operation to call the underlying API  
         private void callRestClient()
         {
             //Create Client and API Address
             RestClient client = new RestClient();
-            client.webAPIaddress = "https://badapi.iqvia.io/api/v1/Tweets?";
+            client.webAPIaddress = API_ENDPOINT;
 
             DateTime sd = datePickerStartDate.Value.ToUniversalTime();
             DateTime ed = datePickerEndDate.Value.ToUniversalTime();
 
-            getNextTweets(sd, ed, client);
+            getTweets(sd, ed, client);
 
         }
 
-        private void getNextTweets(DateTime startDate, DateTime endDate, RestClient client)
+        // Call the API programatically to obtain all tweets inside the date range
+        private void getTweets(DateTime startDate, DateTime endDate, RestClient client)
         {
             client.startDate = startDate.ToString();
             client.endDate = endDate.ToString();
@@ -63,7 +71,9 @@ namespace RestBadApi
 
         }
         #endregion
+
         #region JSON Deserialization
+        // Convert the tweets in json format into Tweet objects
         private List<Tweet> deserializeTweets(string twtJSON)
         {
             try
@@ -81,7 +91,9 @@ namespace RestBadApi
         }
 
         #endregion
+
         #region Handle Duplicate Records
+        // Remove duplicates from a tweet list
         private List<Tweet> removeDuplicates (List<Tweet> lt)
         {
             IEnumerable<Tweet> noduplicates = lt.Distinct(new TweetComparer());
@@ -89,8 +101,10 @@ namespace RestBadApi
 
         }
         #endregion
+
         #region Print Tweets
         // Unused Method, used to print in JSON Format.
+        //Message Textbox can be used to debug.
         private void printJSON(string jsontxt)
         {
             textBoxResponse.Text = textBoxResponse.Text + jsontxt + Environment.NewLine;
@@ -98,6 +112,7 @@ namespace RestBadApi
             textBoxResponse.ScrollToCaret();
         }
 
+        // Update the dataView and show the tweets in the table UI
         private void printDataView(List<Tweet> lt)
         {
             //Calculate the total tweets 
@@ -109,7 +124,7 @@ namespace RestBadApi
             textBoxDupTweets.Text = (countTotal - countNoDup).ToString();
 
             //Getting the duplicate tweets
-           // List<Tweet> dups = lt.Except(noDupList).ToList();
+            // List<Tweet> dups = lt.Except(noDupList).ToList();
 
             dataGridViewTweets.DataSource = lt;
 

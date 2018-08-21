@@ -156,7 +156,7 @@ namespace RestBadApi
             this.groupBoxJSON.Size = new System.Drawing.Size(1036, 145);
             this.groupBoxJSON.TabIndex = 14;
             this.groupBoxJSON.TabStop = false;
-            this.groupBoxJSON.Text = "JSON Tweets";
+            this.groupBoxJSON.Text = "Messages";
             // 
             // labelTotalTweets
             // 

@@ -81,7 +81,7 @@ namespace RestBadApi
             // datePickerStartDate
             // 
             this.datePickerStartDate.Location = new System.Drawing.Point(98, 56);
-            this.datePickerStartDate.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
+            this.datePickerStartDate.MaxDate = new System.DateTime(2017, 12, 30, 0, 0, 0, 0);
             this.datePickerStartDate.MinDate = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
             this.datePickerStartDate.Name = "datePickerStartDate";
             this.datePickerStartDate.Size = new System.Drawing.Size(200, 20);
@@ -92,7 +92,7 @@ namespace RestBadApi
             // 
             this.datePickerEndDate.Location = new System.Drawing.Point(441, 56);
             this.datePickerEndDate.MaxDate = new System.DateTime(2017, 12, 31, 0, 0, 0, 0);
-            this.datePickerEndDate.MinDate = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
+            this.datePickerEndDate.MinDate = new System.DateTime(2016, 1, 2, 0, 0, 0, 0);
             this.datePickerEndDate.Name = "datePickerEndDate";
             this.datePickerEndDate.Size = new System.Drawing.Size(200, 20);
             this.datePickerEndDate.TabIndex = 7;

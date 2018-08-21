@@ -38,7 +38,19 @@ namespace RestBadApi
             //Create Client and API Address
             RestClient client = new RestClient();
             client.webAPIaddress = API_ENDPOINT;
+            //Validation of Selection Dates
+            if(datePickerStartDate.Value >= datePickerEndDate.Value)
+            {
+                string message = "You did not enter a valid StartDate or/and EndDate. \n\n *Please be sure that the Startdate ocurrs before the Enddate. \n *Select at least one day of difference between the StartDate and EndDate.";
+                string caption = "Error Detected in Input";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
 
+                // Displays the MessageBox.
+
+                result = MessageBox.Show(message, caption, buttons);
+                return;
+            }
             DateTime sd = datePickerStartDate.Value.ToUniversalTime();
             DateTime ed = datePickerEndDate.Value.ToUniversalTime();
 

@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="jsonTweet.cs" />
+    <Compile Include="Tweet.cs" />
     <Compile Include="restForm.cs">
       <SubType>Form</SubType>
     </Compile>

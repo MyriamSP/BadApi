@@ -49,8 +49,6 @@ namespace RestBadApi
                 response = (HttpWebResponse)request.GetResponse();
 
                 //response stream in Json format. 
-                //TODO: Parse the Json format.
-
                 using (Stream responseStream = response.GetResponseStream())
                 {
                     if (responseStream != null)
